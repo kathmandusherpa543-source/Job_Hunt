@@ -41,21 +41,27 @@ def log(msg):
 # PERSONALIZED CONFIG 
 # ---------------------------------------------------------
 
+# Accounting & Business Administration roles targeting the Canadian market
 SEARCH_TERMS = [
-    "machine learning", "ml engineer", "mlops engineer",
-    "data engineer", "data scientist", "data analyst",
-    "ai engineer", "llm engineer", "python", "Artificial Intelligence",
-    "numpy, pandas, scikit learn, matplotlib, TensorFlow",
-    "backend developer", "fastapi",
-    "RAG (Retrival Augmented Generation)",
-    "MCP (Model Context Protocol)",
-    "HuggingFace", "Sentiment Analysis",
-    "React", "Next.js",
+    # Core Accounting Roles
+    "Accounting", "Accountant", "Bookkeeper",
+    # Financial Analysis
+    "Financial Analyst", "Cost Accountant", "Tax Specialist",
+    # Professional Designation
+    "CPA",
+    # Accounts Roles
+    "Accounts Payable", "Accounts Receivable",
+    # Audit & Control
+    "Internal Audit", "Controller",
+    # Management
+    "Finance Manager",
+    # Business Administration
+    "Business Analyst",
 ]
 
 LOCATIONS = [
-    "Toronto, Ontario, Canada",
-    "Ontario, Canada",
+    "Toronto, Ontario",
+    "Ontario",
     "Canada",
 ]
 
@@ -66,13 +72,13 @@ HOURS_OLD = int("26") # 24 hours + 2 extra for timezones & delays
 COUNTRY = "Canada"
 
 OUTPUT_DIR = "jobs_data"
-MASTER_FILE = "canada_ml_jobs_master.csv"
+MASTER_FILE = "canada_accounting_jobs_master.csv"
 
 # ---------------------------------------------------------
 # 🔴 SPAM KEYWORDS - Filter out jobs YOU'RE NOT ELIGIBLE FOR
 # ---------------------------------------------------------
-# Based on your profile: New grad (April 2026), ~8 months internship experience
-# Strong in: Python, ML/MLOps, Data Science, Cloud (AWS/Azure), no French, no P.Eng
+# Based on your profile: Business Administration Major specializing in Accounting
+# Targeting entry to mid-level roles in Toronto, Ontario, and Canada
 
 # Spam filters are imported from spam_filters.py
 
@@ -364,7 +370,7 @@ def send_completion_email(to_email: str, sheet_url: str, gmail_user: str, gmail_
 
 
 if __name__ == "__main__":
-    print("\n🚀 Starting Canada-wide ML/AI Job Scrape...")
+    print("\n🚀 Starting Canada-wide Accounting & Business Admin Job Scrape...")
 
     raw = scrape_all_jobs()
 
