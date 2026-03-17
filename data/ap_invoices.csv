@@ -1,0 +1,16 @@
+invoice_id,vendor,invoice_date,due_date,amount,status
+INV-001,Office Depot Canada,2024-01-05,2024-02-04,320.45,unpaid
+INV-002,Staples Business Advantage,2023-12-01,2023-12-31,875.00,unpaid
+INV-003,Canon Canada Inc.,2023-11-15,2023-12-15,1250.00,unpaid
+INV-004,Pitney Bowes Canada,2024-01-10,2024-02-09,430.00,unpaid
+INV-005,Shred-it Canada,2023-10-20,2023-11-19,215.00,unpaid
+INV-006,Ricoh Canada Inc.,2023-12-20,2024-01-19,980.00,unpaid
+INV-007,Iron Mountain Canada,2024-01-15,2024-02-14,560.00,unpaid
+INV-008,Bell Business Solutions,2023-09-01,2023-10-01,1430.00,unpaid
+INV-009,Rogers Business,2023-12-10,2024-01-09,770.00,unpaid
+INV-010,Canada Post,2024-01-20,2024-02-19,145.00,unpaid
+INV-011,FedEx Canada,2023-11-25,2023-12-25,385.00,unpaid
+INV-012,Purolator,2023-10-15,2023-11-14,290.00,unpaid
+INV-013,Cintas Canada,2024-01-08,2024-02-07,620.00,unpaid
+INV-014,Sysco Canada,2023-12-05,2024-01-04,2100.00,unpaid
+INV-015,Amazon Business Canada,2024-01-18,2024-02-17,475.00,unpaid

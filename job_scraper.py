@@ -7,11 +7,13 @@ from gspread_dataframe import set_with_dataframe
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 import os
+import yaml
 import yagmail
 from dotenv import load_dotenv
 import time
 import socket
 from googleapiclient.errors import HttpError
+from seniority_filter import apply_seniority_filter
 
 # ---------------------------------------------------------
 # 🔧 OPTIMIZATION: Increase default timeout to 10 minutes
@@ -27,6 +29,13 @@ from spam_filters import (
 # Load environment variables from .env file
 load_dotenv()
 
+# ----------------------------------------------------------
+# Load configuration
+# ----------------------------------------------------------
+_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
+with open(_CONFIG_PATH, "r") as _f:
+    CFG = yaml.safe_load(_f)
+
 # ---------------------------------------------------------
 # LOGGING SETUP
 # ---------------------------------------------------------
@@ -38,49 +47,20 @@ def log(msg):
     LOGS.append(str(msg))
 
 # ---------------------------------------------------------
-# PERSONALIZED CONFIG 
+# PERSONALIZED CONFIG  (sourced from config.yaml)
 # ---------------------------------------------------------
 
-# Accounting & Business Administration roles targeting the Canadian market
-SEARCH_TERMS = [
-    # Core Accounting Roles
-    "Accounting", "Accountant", "Bookkeeper",
-    # Financial Analysis
-    "Financial Analyst", "Cost Accountant", "Tax Specialist",
-    # Professional Designation
-    "CPA",
-    # Accounts Roles
-    "Accounts Payable", "Accounts Receivable",
-    # Audit & Control
-    "Internal Audit", "Controller",
-    # Management
-    "Finance Manager",
-    # Business Administration
-    "Business Analyst",
-]
+SEARCH_TERMS = CFG.get("search_terms", [])
+LOCATIONS = CFG.get("locations", ["Toronto, Ontario", "Ontario", "Canada"])
+SITES = CFG.get("sites", ["indeed", "linkedin"])
+RESULTS_WANTED = int(CFG.get("results_wanted", 50))
+HOURS_OLD = int(CFG.get("hours_old", 26))
+COUNTRY = CFG.get("country", "Canada")
+OUTPUT_DIR = CFG.get("output_dir", "jobs_data")
+MASTER_FILE = CFG.get("master_file", "canada_accounting_jobs_master.csv")
 
-LOCATIONS = [
-    "Toronto, Ontario",
-    "Ontario",
-    "Canada",
-]
-
-SITES = ["indeed", "linkedin"]
-
-RESULTS_WANTED = int("50")
-HOURS_OLD = int("26") # 24 hours + 2 extra for timezones & delays
-COUNTRY = "Canada"
-
-OUTPUT_DIR = "jobs_data"
-MASTER_FILE = "canada_accounting_jobs_master.csv"
-
-# ---------------------------------------------------------
-# 🔴 SPAM KEYWORDS - Filter out jobs YOU'RE NOT ELIGIBLE FOR
-# ---------------------------------------------------------
-# Based on your profile: Business Administration Major specializing in Accounting
-# Targeting entry to mid-level roles in Toronto, Ontario, and Canada
-
-# Spam filters are imported from spam_filters.py
+SENIORITY_EXCLUDE = CFG.get("seniority", {}).get("exclude_terms", [])
+SENIORITY_INCLUDE = CFG.get("seniority", {}).get("include_terms", [])
 
 
 def scrape_all_jobs():
@@ -149,6 +129,11 @@ def clean_results(df: pd.DataFrame):
         df.get("company", pd.Series("", index=df.index)).apply(company_is_spam)
     )
     df = df[mask].copy()
+
+    # Apply seniority filter: keep only entry-level & intermediate roles
+    before = len(df)
+    df = apply_seniority_filter(df, exclude_terms=SENIORITY_EXCLUDE, title_col="title")
+    log(f"🔰 Seniority filter removed {before - len(df)} too-senior postings.")
 
     # 🔥 Keep this to prevent duplicates across sites & locations
     df.drop_duplicates(subset=["job_url"], inplace=True)

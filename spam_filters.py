@@ -14,8 +14,8 @@ SPAM_KEYWORDS = [
     "director", "head of", "vice president", "vp", "chief",
     "executive", "c-level", "distinguished", "fellow",
 
-    # Experience Level Indicators
-    "intermediate", "experienced professional",
+    # Experience Level Indicators (too senior)
+    "experienced professional",
 
     # Management/Leadership
     "manager", "mgr", "management", "supervisor", "team lead",
