@@ -5,14 +5,14 @@ Edit these lists to adjust filtering without touching the main script.
 """
 
 # 🔴 SPAM KEYWORDS - Filter out jobs YOU'RE NOT ELIGIBLE FOR
-# Based on your profile: New grad (April 2026), ~8 months internship experience
-# Strong in: Python, ML/MLOps, Data Science, Cloud (AWS/Azure), no French, no P.Eng
+# Based on your profile: Business Administration Major specializing in Accounting
+# Targeting entry to mid-level roles in Toronto, Ontario, and Canada
 
 SPAM_KEYWORDS = [
-    # Seniority Levels (5+ years required)
+    # Seniority Levels (too senior / 10+ years required)
     "senior", "sr.", "sr ", "principal", "lead", "staff",
     "director", "head of", "vice president", "vp", "chief",
-    "executive", "distinguished", "fellow",
+    "executive", "c-level", "distinguished", "fellow",
 
     # Experience Level Indicators
     "intermediate", "experienced professional",
@@ -20,19 +20,29 @@ SPAM_KEYWORDS = [
     # Management/Leadership
     "manager", "mgr", "management", "supervisor", "team lead",
 
+    # Irrelevant Tech Roles
+    "software developer", "software engineer", "data scientist",
+    "machine learning", "ml engineer", "ai engineer", "llm engineer",
+    "devops", "site reliability", "infrastructure architect",
+    "Java Developer", "Java", ".net",
+    "database administrator", "dba", "system administrator",
+    "network engineer", "telecommunications", "telecom",
+    "quality assurance lead", "qa lead", "test lead",
+    "Android", "Aerospace Engineer",
+
     # Architecture (typically 8+ years)
     "architect", "architecture lead", "solutions architect",
     "enterprise architect", "technical architect",
 
-    # Specialized Roles Requiring Specific Degrees/Certifications
+    # Engineering Disciplines (non-accounting)
     "civil engineer", "mechanical engineer", "electrical engineer",
     "fpga engineer", "hardware engineer", "embedded systems",
     "industrial engineer", "chemical engineer", "process engineer",
     "broadcast", "manufacturing science", "production engineer", "III",
 
-    # Professional Designations You Don't Have
-    "p.eng", "p. eng", "professional engineer", "cpa", "chartered",
-    "licensed professional", "registered engineer", "cfa",
+    # Professional Designations Requiring Different Qualifications
+    "p.eng", "p. eng", "professional engineer",
+    "licensed professional", "registered engineer",
 
     # Security Clearance Required
     "secret clearance", "top secret", "security clearance required",
@@ -42,31 +52,30 @@ SPAM_KEYWORDS = [
     "bilingual french", "fluent french", "french required",
     "french mandatory", "bilinguisme", "bilingue",
 
-    # Business/Non-Technical Roles
-    "product manager", "product management", "business analyst",
+    # Irrelevant Business / Non-Accounting Roles
+    "product manager", "product management",
     "project manager", "program manager", "scrum master",
     "account manager", "sales", "marketing", "hr specialist",
     "people services", "recruitment", "talent acquisition",
 
-    # Specialized Fields Outside Your Domain
-    "Java Developer", "Java", ".net", "Video Editor", "Videographer", "devops lead",
-    "site reliability lead", "infrastructure architect", "Paramedic", "Care", 
-    "database administrator", "dba", "system administrator", "Front Desk Agent",
-    "network engineer", "telecommunications", "telecom", "contract", "women"
-    "quality assurance lead", "qa lead", "test lead", "Android", "Aerospace Engineer",
+    # Temporary / Commission / Unpaid Work
+    "unpaid internship", "commission-based", "contractor only",
+
+    # Predatory / Illegitimate Work Models
+    "franchise", "mlm", "multi-level marketing", "sales-heavy",
 
     # Academic/Research (PhD required)
     "research scientist", "research lead", "postdoc", "post-doctoral",
 
     # Internships/Co-op (if you want full-time only)
     "intern", "internship", "co-op", "co op", "student position",
-    "summer student", "coop", "stage", "stagiaire", "Consultant en Livraison"
+    "summer student", "coop", "stage", "stagiaire", "Consultant en Livraison",
 
     # Healthcare/Medical/Clinical
     "clinical", "healthcare practitioner", "medical", "pharmaceutical",
     "nursing", "therapy", "counseling",
 
-    # Finance-Specific (requiring CFA/professional certifications)
+    # Finance-Specific (requiring CFA/investment certifications)
     "portfolio manager", "investment analyst", "financial advisor",
     "wealth management",
 
@@ -100,6 +109,7 @@ SPAM_KEYWORDS = [
     "Reporter", "News Anchor", "Broadcast Technician",
     "Camera Operator", "Sound Engineer", "Lighting Technician",
     "Video Producer", "Film Editor", "Production Assistant",
+    "Video Editor", "Videographer",
 
     # 🎭 Creative / Arts / Production
     "Set Designer", "Costume Designer", "Makeup Artist",
@@ -132,7 +142,7 @@ SPAM_KEYWORDS = [
     "University Professor", "Faculty Member", "Lecturer",
     "Instructor", "Teaching Assistant",
     "Professor Emeritus", "Adjunct Professor",
-    "Department Chair", "Principal", "Vice Principal",
+    "Department Chair", "Vice Principal",
     "Dean", "School Administrator", "School Principal",
     "Education Assistant", "Instructional Coach",
     "Curriculum Specialist", "Learning Specialist",
@@ -215,14 +225,11 @@ SPAM_KEYWORDS = [
     "Lab Technician", "Scientist (wet lab)",
     "Biomedical", "Health Content Editor",
 
-    # 🧾 Accounting / Bookkeeping (pure finance ops)
-    "accounting specialist", "accounts payable",
-    "accounts receivable", "bookkeeper",
-
     # 🗂️ Admin / Office (non-technical)
-    "Administrator", "Scheduling Coordinator", "Renewal Administrator",
+    "Scheduling Coordinator", "Renewal Administrator",
     "Service Administrator", "Shop Administrator",
     "Office Administrator", "Housing Administrative",
+    "Front Desk Agent",
     "Reporting Analyst (non-technical)",
 
     # ⚖️ Legal / Governance
@@ -247,6 +254,7 @@ SPAM_KEYWORDS = [
     "Bartender", "Cook", "Driver", "compiler",
     "Field Technician", "Freelance",
     "Estimator", "Scheduler",
+    "Paramedic", "Caregiver", "Patient Care",
 ]
 
 # Additional spam/fake companies filter (matches `company` column)
@@ -274,6 +282,8 @@ SPAM_COMPANIES = [
 
 # Dedicated spam keywords for description (phrases common in spammy descriptions)
 SPAM_DESCRIPTION_KEYWORDS = [
-    "quick money", "5+ years",  "6+ years", "7+ years", "8+ years", "10+ years", 
+    "quick money", "5+ years", "6+ years", "7+ years", "8+ years", "10+ years",
     "9 years", "6 years", "7 years", "8 years",
+    "10+ years experience", "commission only", "unpaid internship",
+    "multi-level marketing", "franchise opportunity",
 ]
