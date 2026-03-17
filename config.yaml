@@ -1,0 +1,87 @@
+# ----------------------------------------------------------
+# Accounting Job Hunt — Configuration
+# Scope: Entry-level & Intermediate roles in Toronto / Ontario / Canada
+# ----------------------------------------------------------
+
+# Job board sites to scrape
+sites:
+  - indeed
+  - linkedin
+
+# Scraping parameters
+results_wanted: 50
+hours_old: 26        # 24 h + 2 h buffer for timezone/delivery lag
+country: Canada
+
+# Output paths
+output_dir: jobs_data
+master_file: canada_accounting_jobs_master.csv
+
+# ----------------------------------------------------------
+# Target locations
+# ----------------------------------------------------------
+locations:
+  - Toronto, Ontario
+  - Mississauga, Ontario
+  - Brampton, Ontario
+  - Ontario
+  - Canada
+
+# ----------------------------------------------------------
+# Accounting role keywords to search
+# ----------------------------------------------------------
+search_terms:
+  - Junior Accountant
+  - Accounting Assistant
+  - Accounts Payable
+  - Accounts Receivable
+  - AP Clerk
+  - AR Clerk
+  - Bookkeeper
+  - Payroll Assistant
+  - Payroll Administrator
+  - Financial Analyst
+  - Accounting Clerk
+  - Accounting
+  - Accountant
+
+# ----------------------------------------------------------
+# Seniority filter
+# ----------------------------------------------------------
+seniority:
+  # Terms that indicate a role IS entry-level or intermediate (include)
+  include_terms:
+    - junior
+    - entry
+    - entry-level
+    - entry level
+    - intermediate
+    - associate
+    - assistant
+    - clerk
+    - coordinator
+    - administrator
+
+  # Terms that indicate a role is TOO SENIOR (exclude from results)
+  exclude_terms:
+    - senior
+    - "sr."
+    - " sr "
+    - principal
+    - lead
+    - staff
+    - director
+    - "head of"
+    - "vice president"
+    - " vp "
+    - chief
+    - executive
+    - c-level
+    - distinguished
+    - fellow
+    - controller
+    - manager
+    - mgr
+    - management
+    - supervisor
+    - "team lead"

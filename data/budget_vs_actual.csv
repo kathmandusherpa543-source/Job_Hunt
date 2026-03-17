@@ -1,0 +1,21 @@
+department,category,budget,actual
+Operations,Salaries & Wages,120000,124500
+Operations,Benefits & Payroll Taxes,18000,19200
+Operations,Office Supplies,4500,5120
+Operations,Software & Subscriptions,6000,5800
+Operations,Travel & Entertainment,3000,1250
+Finance,Salaries & Wages,85000,85000
+Finance,Benefits & Payroll Taxes,12750,13000
+Finance,Professional Fees,8000,9500
+Finance,Training & Development,3500,2800
+Finance,Office Supplies,1200,950
+Marketing,Salaries & Wages,65000,63000
+Marketing,Digital Advertising,15000,18500
+Marketing,Events & Sponsorship,10000,7500
+Marketing,Creative & Design,5000,6200
+Marketing,Travel & Entertainment,4000,3100
+IT,Salaries & Wages,95000,95000
+IT,Hardware & Equipment,12000,14300
+IT,Software Licenses,8500,8500
+IT,Cloud & Hosting,6000,7200
+IT,Maintenance & Support,4000,3800

@@ -1,0 +1,16 @@
+date,description,amount,type
+2024-01-03,Customer Payment - Maple Leaf Foods,4500.00,receipt
+2024-01-05,Supplier Invoice - Office Supplies,-320.45,payment
+2024-01-07,Payroll Run,-8750.00,payment
+2024-01-08,Customer Payment - CN Rail,12000.00,receipt
+2024-01-11,Customer Payment - Rogers Communications,6800.00,receipt
+2024-01-12,CRA HST Remittance,-2340.00,payment
+2024-01-15,Payroll Run,-8750.00,payment
+2024-01-16,Customer Payment - TD Bank,3200.00,receipt
+2024-01-18,Rent Payment - Commercial Space,-4200.00,payment
+2024-01-20,Customer Payment - Bell Canada,5500.00,receipt
+2024-01-22,Utilities Payment,-410.00,payment
+2024-01-25,Customer Payment - Loblaw Companies,9100.00,receipt
+2024-01-26,Insurance Premium,-875.00,payment
+2024-01-28,Customer Payment - Shoppers Drug Mart,2750.00,receipt
+2024-01-31,Deposit in Transit,3000.00,receipt
