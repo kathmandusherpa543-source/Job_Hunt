@@ -9,8 +9,8 @@ sites:
   - linkedin
 
 # Scraping parameters
-results_wanted: 50
-hours_old: 26        # 24 h + 2 h buffer for timezone/delivery lag
+results_wanted: 200
+hours_old: 1440      # 60 days × 24 h = ~2 months backfill
 country: Canada
 
 # Output paths
